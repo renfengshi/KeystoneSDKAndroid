@@ -1,4 +1,4 @@
-package com.keystone.sdk
+package com.github.KeystoneHQ.keystone-sdk-android
 
 import com.sparrowwallet.hummingbird.UR
 import com.sparrowwallet.hummingbird.UREncoder
