@@ -11,6 +11,8 @@ class KeystoneSDK {
         return UREncoder(ur, maxFragmentLen, minFragmentLen, 0)
     }
 
+//    TEST
+
     companion object {
         init {
             System.loadLibrary("ur_registry_ffi")
