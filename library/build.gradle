@@ -42,14 +42,14 @@ dependencies {
     api 'com.sparrowwallet:hummingbird:1.6.6'
     api 'com.google.code.gson:gson:2.8.6'
 }
-//
-//preBuild {
-//    doFirst {
-//        exec {
-//            executable "./env.sh" // set env for cargo python rustc
-//        }
-//    }
-//}
+
+preBuild {
+    doFirst {
+        exec {
+            executable "./env.sh" // set env for cargo python rustc
+        }
+    }
+}
 
 cargo {
     module = "./keystone-sdk-rust"       // Or whatever directory contains your Cargo.toml
