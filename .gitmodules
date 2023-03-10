@@ -1,0 +1,3 @@
+[submodule "library/keystone-sdk-rust"]
+	path = library/keystone-sdk-rust
+	url = git@github.com:LiYanLance/keystone-sdk.git
