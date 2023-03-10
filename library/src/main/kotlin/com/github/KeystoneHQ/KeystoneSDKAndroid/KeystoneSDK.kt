@@ -1,4 +1,4 @@
-package com.github.KeystoneHQ.keystone-sdk-android
+package com.github.KeystoneHQ.KeystoneSDKAndroid
 
 import com.sparrowwallet.hummingbird.UR
 import com.sparrowwallet.hummingbird.UREncoder
@@ -10,8 +10,6 @@ class KeystoneSDK {
         val ur = UR.fromBytes(type, cbor.toByteArray());
         return UREncoder(ur, maxFragmentLen, minFragmentLen, 0)
     }
-
-//    TEST
 
     companion object {
         init {
