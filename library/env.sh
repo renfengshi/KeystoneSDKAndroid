@@ -17,7 +17,7 @@ else
   apt-get install build-essential
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   source "$HOME/.cargo/env"
-  cargo install --force cargo-ndk
+  cargo install cargo-ndk --version 2.12.6
   rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android i686-linux-android
 fi
 
