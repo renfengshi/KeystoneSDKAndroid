@@ -11,7 +11,7 @@ if command -v rustc >/dev/null 2>&1; then
 else
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   source "$HOME/.cargo/env"
-  cargo install cargo-ndk
+  cargo install --force cargo-ndk
   rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android i686-linux-android
 fi
 
