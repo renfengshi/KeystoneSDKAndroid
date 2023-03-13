@@ -12,11 +12,10 @@ echo 'current_dir:'
 echo "$current_dir"
 
 # NDK
-wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
-unzip android-ndk-r25c-linux.zip
-export ANDROID_NDK_HOME=$current_dir/android-ndk-r25c
+#wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
+#unzip android-ndk-r25c-linux.zip
+#export ANDROID_NDK_HOME=$current_dir/android-ndk-r25c
 env
-ll "$ANDROID_NDK_HOME"
 
 if command -v rustc >/dev/null 2>&1; then
   echo 'rustc exists'
