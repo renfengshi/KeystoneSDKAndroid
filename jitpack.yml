@@ -1,6 +1,6 @@
 android:
   ndk:
-    version: 25.2.9519653
+    version: "25.2.9519653"
 
 #before_install:
 #  - ./library/env.sh
