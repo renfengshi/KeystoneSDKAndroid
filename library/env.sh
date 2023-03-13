@@ -7,6 +7,7 @@
 #export RUST_ANDROID_GRADLE_RUSTC_COMMAND=$HOME/.cargo/bin/rustc # set the path on your computer
 
 rustc -V
+python -V
 
 if command -v rustc >/dev/null 2>&1; then
   echo 'rustc exists'
