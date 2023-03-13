@@ -5,18 +5,19 @@
 #export RUST_ANDROID_GRADLE_PYTHON_COMMAND=$HOME/.pyenv/shims/python # set the path on your computer
 #export RUST_ANDROID_GRADLE_CARGO_COMMAND=$HOME/.cargo/bin/cargo # set the path on your computer
 #export RUST_ANDROID_GRADLE_RUSTC_COMMAND=$HOME/.cargo/bin/rustc # set the path on your computer
-
-env
-echo 'pwd:'
-pwd
-which python
-which rustc
-
+#
 if command -v rustc >/dev/null 2>&1; then
   echo 'rustc exists'
 else
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   source "$HOME/.cargo/env"
-  rustc -V
-  which rustc
 fi
+
+current_dir=$(pwd)
+echo 'current_dir:'
+echo "$current_dir"
+export ANDROID_DEST=$current_dir/src/main/jniLibs
+cd ./keystone-sdk-rust/libs/ur-registry-ffi
+make
+cd "$current_dir"
+pwd
