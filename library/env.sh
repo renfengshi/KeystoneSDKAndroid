@@ -11,37 +11,38 @@ current_dir=$(pwd)
 echo 'current_dir:'
 echo "$current_dir"
 
-if command -v rustc >/dev/null 2>&1; then
-  echo 'rustc exists'
-else
-  export RUSTUP_HOME=$current_dir/.rust
-  export CARGO_HOME=$current_dir/.cargo
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-  export RUST_ANDROID_GRADLE_RUSTC_COMMAND=$CARGO_HOME/bin/rustc
-  export RUST_ANDROID_GRADLE_CARGO_COMMAND=$CARGO_HOME/bin/cargo
-  export ANDROID_NDK_HOME=$NDK_HOME
-fi
-
-env
-
-# download NDK
-#wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
-#unzip android-ndk-r25c-linux.zip
-#export ANDROID_NDK_HOME=$current_dir/android-ndk-r25c
-
-# install rust
 #if command -v rustc >/dev/null 2>&1; then
 #  echo 'rustc exists'
 #else
-#  apt-get install build-essential
+#  wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
+#  unzip android-ndk-r25c-linux.zip -q
+#  export RUSTUP_HOME=$current_dir/.rust
+#  export CARGO_HOME=$current_dir/.cargo
 #  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-#  source "$HOME/.cargo/env"
-#  cargo install cargo-ndk
-#  rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android i686-linux-android
+#  export RUST_ANDROID_GRADLE_RUSTC_COMMAND=$CARGO_HOME/bin/rustc
+#  export RUST_ANDROID_GRADLE_CARGO_COMMAND=$CARGO_HOME/bin/cargo
+#  export ANDROID_NDK_HOME=$NDK_HOME
 #fi
 
+#env
+
+# install rust
+if command -v rustc >/dev/null 2>&1; then
+  echo 'rustc exists'
+else
+  # download NDK
+  wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
+  unzip android-ndk-r25c-linux.zip -q
+  export ANDROID_NDK_HOME=$current_dir/android-ndk-r25c
+#  apt-get install build-essential
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  source "$HOME/.cargo/env"
+  cargo install cargo-ndk
+  rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android i686-linux-android
+fi
+
 # build rust
-#export ANDROID_DEST=$current_dir/src/main/jniLibs
-#cd ./keystone-sdk-rust/libs/ur-registry-ffi
-#make
-#cd "$current_dir"
+export ANDROID_DEST=$current_dir/src/main/jniLibs
+cd ./keystone-sdk-rust/libs/ur-registry-ffi
+make
+cd "$current_dir"
