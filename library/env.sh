@@ -9,5 +9,5 @@
 if command -v rustc >/dev/null 2>&1; then
   echo 'rustc exists'
 else
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 fi
