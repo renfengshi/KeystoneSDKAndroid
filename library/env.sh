@@ -7,9 +7,16 @@
 #export RUST_ANDROID_GRADLE_RUSTC_COMMAND=$HOME/.cargo/bin/rustc # set the path on your computer
 #
 
-# test
-export ANDROID_NDK_HOME=$NDK_HOME
+current_dir=$(pwd)
+echo 'current_dir:'
+echo "$current_dir"
+
+# NDK
+wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
+unzip android-ndk-r25c-linux.zip
+export ANDROID_NDK_HOME=$current_dir/android-ndk-r25c
 env
+ll "$ANDROID_NDK_HOME"
 
 if command -v rustc >/dev/null 2>&1; then
   echo 'rustc exists'
@@ -21,9 +28,6 @@ else
   rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android i686-linux-android
 fi
 
-current_dir=$(pwd)
-echo 'current_dir:'
-echo "$current_dir"
 export ANDROID_DEST=$current_dir/src/main/jniLibs
 cd ./keystone-sdk-rust/libs/ur-registry-ffi
 make
