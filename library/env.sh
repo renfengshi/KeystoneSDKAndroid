@@ -9,6 +9,7 @@
 if command -v rustc >/dev/null 2>&1; then
   echo 'rustc exists'
 else
+  apt-get install build-essential
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   source "$HOME/.cargo/env"
   cargo install --force cargo-ndk
