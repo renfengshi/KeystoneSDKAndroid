@@ -7,6 +7,10 @@
 #export RUST_ANDROID_GRADLE_RUSTC_COMMAND=$HOME/.cargo/bin/rustc # set the path on your computer
 #
 
+echo 'java:'
+which java
+env
+
 if command -v rustc >/dev/null 2>&1; then
   echo 'rustc exists'
 else
