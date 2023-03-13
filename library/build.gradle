@@ -10,7 +10,7 @@ version = '1.5'
 
 android {
     compileSdkVersion 31
-//    ndkVersion "25.2.9519653"
+    ndkVersion "25.2.9519653"
 
     defaultConfig {
         minSdkVersion 21
