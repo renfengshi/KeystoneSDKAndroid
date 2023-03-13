@@ -1,0 +1,3 @@
+before_install:
+  - ./library/env.sh
+  - echo "rust install success"
