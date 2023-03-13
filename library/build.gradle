@@ -2,7 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'maven-publish'
-//    id 'org.mozilla.rust-android-gradle.rust-android'
+    id 'org.mozilla.rust-android-gradle.rust-android'
 }
 
 group = 'com.keystone'
@@ -48,14 +48,14 @@ preBuild {
     }
 }
 
-//cargo {
-//    module = "./keystone-sdk-rust"       // Or whatever directory contains your Cargo.toml
-//    libname = "ur-registry-ffi"          // Or whatever matches Cargo.toml's [package] name.
-//    targets = ["arm", "x86", "arm64", "x86_64"]
-//    profile = 'release'
-//    targetIncludes = ['libur_registry_ffi.so']
-////    rustupChannel = "nightly"
-//}
+cargo {
+    module = "./keystone-sdk-rust"       // Or whatever directory contains your Cargo.toml
+    libname = "ur-registry-ffi"          // Or whatever matches Cargo.toml's [package] name.
+    targets = ["arm", "x86", "arm64", "x86_64"]
+    profile = 'release'
+    targetIncludes = ['libur_registry_ffi.so']
+//    rustupChannel = "nightly"
+}
 
 afterEvaluate {
     publishing {
@@ -70,9 +70,9 @@ afterEvaluate {
         }
     }
 }
-//
-//tasks.whenTaskAdded { task ->
-//    if ((task.name == 'javaPreCompileDebug' || task.name == 'javaPreCompileRelease')) {
-//        task.dependsOn 'cargoBuild'
-//    }
-//}
+
+tasks.whenTaskAdded { task ->
+    if ((task.name == 'javaPreCompileDebug' || task.name == 'javaPreCompileRelease')) {
+        task.dependsOn 'cargoBuild'
+    }
+}
