@@ -19,7 +19,10 @@ else
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   export RUST_ANDROID_GRADLE_RUSTC_COMMAND=$CARGO_HOME/bin/rustc
   export RUST_ANDROID_GRADLE_CARGO_COMMAND=$CARGO_HOME/bin/cargo
+  export ANDROID_NDK_HOME=$NDK_HOME
 fi
+
+env
 
 # download NDK
 #wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
