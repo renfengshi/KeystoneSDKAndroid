@@ -34,9 +34,9 @@ if command -v rustc >/dev/null 2>&1; then
   echo 'rustc exists'
 else
   # download NDK
-  wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
-  unzip -q android-ndk-r25c-linux.zip
-  export ANDROID_NDK_HOME=$current_dir/android-ndk-r25c
+  # wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
+  # unzip -q android-ndk-r25c-linux.zip
+  # export ANDROID_NDK_HOME=$current_dir/android-ndk-r25c
 #  apt-get install build-essential
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   source "$HOME/.cargo/env"
