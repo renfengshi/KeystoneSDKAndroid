@@ -11,6 +11,9 @@ current_dir=$(pwd)
 echo 'current_dir:'
 echo "$current_dir"
 
+env
+ls -l "$NDK_HOME"
+
 #if command -v rustc >/dev/null 2>&1; then
 #  echo 'rustc exists'
 #else
