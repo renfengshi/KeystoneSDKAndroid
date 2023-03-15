@@ -27,17 +27,17 @@ ls -l "$NDK_HOME"
 #  export ANDROID_NDK_HOME=$NDK_HOME
 #fi
 
-#env
+env
+ls -l "$"
 
 # install rust
 if command -v rustc >/dev/null 2>&1; then
   echo 'rustc exists'
 else
   # download NDK
-  # wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
-  # unzip -q android-ndk-r25c-linux.zip
-  # export ANDROID_NDK_HOME=$current_dir/android-ndk-r25c
-#  apt-get install build-essential
+  wget -q https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
+  unzip -q android-ndk-r25c-linux.zip
+  export ANDROID_NDK_HOME=$current_dir/android-ndk-r25c
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   source "$HOME/.cargo/env"
   cargo install cargo-ndk
